@@ -36,18 +36,16 @@ export default class HabitCalendar extends Plugin {
 		// @ts-ignore https://blacksmithgu.github.io/obsidian-dataview/api/intro/#plugin-access
 		const dv = this.app.plugins.plugins.dataview.api;
 
-		//     taskList(tasks, groupByFile = true, container, component, filePath = "") {
-
-		const makeSomethingTasks = await dv.pages();
-		console.log("makeSomethingTasks", makeSomethingTasks);
-
-		window.habitCalendar = (el: HTMLElement, habit: string) => {
-			const reviewDayTasks = dv
+		window.habitCalendar = (el: HTMLElement, habitName: string) => {
+			const habitTasks = dv
 				.pages("#daily")
 				// @ts-ignore
-				.file.tasks.where((t) => t.text.includes(habit));
+				.file.tasks.where((t) => t.text.includes(habitName));
+			console.log("habitTasks", habitTasks.values);
+			// @ts-ignore
+			const completed = habitTasks.values.filter((t) => t.completed);
 			createEl("div", {
-				text: `${habit}: ${reviewDayTasks.values.length} tasks`,
+				text: `Habit: "${habitName}": ${completed.length} completed of ${habitTasks.values.length} recorded`,
 				parent: el,
 			});
 		};
