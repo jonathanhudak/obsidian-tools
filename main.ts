@@ -33,10 +33,9 @@ export default class HabitCalendar extends Plugin {
 	async onload() {
 		await this.loadSettings();
 
-		// @ts-ignore https://blacksmithgu.github.io/obsidian-dataview/api/intro/#plugin-access
-		const dv = this.app.plugins.plugins.dataview.api;
-
 		window.habitCalendar = (el: HTMLElement, habitName: string) => {
+			// @ts-ignore https://blacksmithgu.github.io/obsidian-dataview/api/intro/#plugin-access
+			const dv = this.app.plugins.plugins.dataview.api;
 			const habitTasks = dv
 				.pages("#daily")
 				// @ts-ignore

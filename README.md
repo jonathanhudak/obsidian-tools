@@ -6,3 +6,22 @@
 * https://github.com/obsidianmd/obsidian-sample-plugin
 * https://github.com/Richardsl/heatmap-calendar-obsidian
 * https://github.com/blacksmithgu/obsidian-dataview/blob/master/src/api/plugin-api.ts
+
+### Svelte
+
+* https://marcus.se.net/obsidian-plugin-docs/getting-started/svelte
+* https://kit.svelte.dev/docs/adapter-static#github-pages
+
+This plugin is setup with a sveltekit server for component development.
+
+For general development:
+
+```
+npm run ui
+```
+
+To deploy as a static website to gh-pages branch
+
+```
+npm run ui:deploy
+```
