@@ -25,3 +25,13 @@ To deploy as a static website to gh-pages branch
 ```
 npm run ui:deploy
 ```
+
+Add a dependency to ui
+
+```
+npm i svelte-canvas -w ui
+```
+
+### Npm workspaces
+
+* https://docs.npmjs.com/cli/v7/using-npm/workspaces#running-commands-in-the-context-of-workspaces
