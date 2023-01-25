@@ -17,6 +17,7 @@
 ### RoughjS
 * https://roughjs.com/
 * https://github.com/rough-stuff/rough/wiki
+* https://roughnotation.com/
 
 This plugin is setup with a sveltekit server for component development.
 
