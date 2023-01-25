@@ -25,8 +25,6 @@
 	let picked: string | null = null;
 	let click = false;
 
-	console.log(days)
-
   </script>
   
   <div bind:clientWidth={width} bind:clientHeight={height}>

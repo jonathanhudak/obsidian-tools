@@ -11,6 +11,12 @@
 
 * https://marcus.se.net/obsidian-plugin-docs/getting-started/svelte
 * https://kit.svelte.dev/docs/adapter-static#github-pages
+* https://github.com/dnass/svelte-canvas
+* https://svelte.dev/repl/8265c051bf754f8aba6f5d6ed9d0d74f?version=3.55.1 
+
+### RoughjS
+* https://roughjs.com/
+* https://github.com/rough-stuff/rough/wiki
 
 This plugin is setup with a sveltekit server for component development.
 
