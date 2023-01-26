@@ -32,7 +32,12 @@
 </script>
 <style>
 	.calendar {
-		margin: 1rem;
+		padding: 1rem;
+		white-space: nowrap;
+		overflow-x: auto;
+	}
+	canvas {
+		max-width: 1200px;
 	}
 </style>
 
