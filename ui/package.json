@@ -33,6 +33,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@floating-ui/dom": "^1.1.0",
 		"@sveltejs/adapter-static": "^1.0.5",
 		"gh-pages": "^5.0.0",
 		"rough-notation": "^0.5.1",

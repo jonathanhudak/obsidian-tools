@@ -19,6 +19,11 @@
 * https://github.com/rough-stuff/rough/wiki
 * https://roughnotation.com/
 
+### Tooltip
+
+* https://svelte.dev/repl/318f2c2ca4174a97befe0840936b9eec?version=3.23.0
+* https://floating-ui.com/docs/computePosition
+
 This plugin is setup with a sveltekit server for component development.
 
 For general development:

@@ -1,22 +1,24 @@
 <script lang="ts">
-    import { onMount, tick } from "svelte";
+	import { onMount, tick } from 'svelte';
 	import rough from 'roughjs';
-	import { annotate } from 'rough-notation';
+	import { tooltip } from './_tooltip.js';
+	import Tooltip from './DailyNoteTooltip.svelte';
+	// import { annotate } from 'rough-notation';
 	export let activeColor: string = 'limegreen';
-    let canvas: HTMLCanvasElement
-	let height: number = 100, width: number = 1100;
-    onMount(async () => {
-        let rc = rough.canvas(canvas);
-        let ctx = canvas.getContext("2d");
+	let canvas: HTMLCanvasElement;
+	let height: number = 100,
+		width: number = 1100;
+	onMount(async () => {
+		let rc = rough.canvas(canvas);
+		let ctx = canvas.getContext('2d');
 		canvas.width = width;
 		canvas.height = height;
 		await tick();
 
-
 		if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
 			// dark mode
 		}
-				
+
 		for (let x = 0; x < 52; x += 1) {
 			const col = x * 14 + 2;
 			for (let y = 0; y < 7; y += 1) {
@@ -25,13 +27,20 @@
 					stroke: activeColor,
 					fill: activeColor,
 					hachureAngle: 33,
-					hachureGap: 3,
+					hachureGap: 3
 				});
 			}
 		}
-		
-    });
+	});
 </script>
+
+<div class="calendar">
+	<div class="calendar-body">
+		<canvas bind:this={canvas} use:tooltip />
+		<Tooltip />
+	</div>
+</div>
+
 <style>
 	.calendar {
 		padding: 1rem;
@@ -62,23 +71,3 @@
 		text-align: left;
 	}
 </style>
-
-<div class="calendar">
-<ol class="months">
-	<li>Jan</li>
-	<li>Feb</li>
-	<li>Mar</li>
-	<li>Apr</li>
-	<li>May</li>
-	<li>June</li>
-	<li>July</li>
-	<li>Aug</li>
-	<li>Sept</li>
-	<li>Oct</li>
-	<li>Nov</li>
-	<li>Dec</li>
-</ol>
-<div class="calendar-body">
-<canvas bind:this={canvas} />
-</div>
-</div>
