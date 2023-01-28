@@ -1,19 +1,33 @@
 // popper core version relies on node's 'process.env' - umd does not
 // see https://popper.js.org/docs/v2/#distribution-targets
+import type { ReferenceElement } from '@floating-ui/core';
 import { computePosition } from '@floating-ui/dom';
 
-export function tooltip(container) {
+interface TooltipData {
+	text: string;
+}
+interface TooltipOptions {
+	showTooltipForPosition: (e: MouseEvent) => TooltipData;
+}
+
+export function tooltip(container: Node, { showTooltipForPosition }: TooltipOptions) {
 	let tt, popperInstance, componentInstance;
 
-	container.addEventListener('mousemove', move);
+	container.addEventListener('mousemove', move as EventListener);
 	container.addEventListener('mouseout', hide);
 
-	function setPosition(e) {
+	function setPosition(e: MouseEvent) {
 		// console.log(e);
 		const { clientX: x, clientY: y } = e;
-		const tooltip = document.querySelector('#tooltip');
+		const tooltip = document.querySelector('#tooltip') as HTMLElement;
+		const tooltipData = showTooltipForPosition(e);
+		if (!tooltipData || !tooltip) return;
+
+		tooltip.innerText = tooltipData.text;
+		tooltip.style.display = 'block';
+
 		// console.log(tooltip);
-		computePosition(container, tooltip).then(() => {
+		computePosition(container as ReferenceElement, tooltip as HTMLElement).then(() => {
 			const style = {
 				left: `${x}px`,
 				top: `${y}px`
@@ -24,21 +38,21 @@ export function tooltip(container) {
 		});
 	}
 
-	function move(e) {
+	function move(e: MouseEvent) {
 		setPosition(e);
-		const tooltip = document.querySelector('#tooltip');
-		tooltip.style.display = 'block';
 	}
 
 	function hide() {
-		const tooltip = document.querySelector('#tooltip');
-		tooltip.style.display = 'none';
+		const tooltip = document.querySelector('#tooltip') as HTMLElement;
+		if (tooltip) {
+			tooltip.style.display = 'none';
+		}
 	}
 
 	return {
 		destroy() {
-			container.removeEventListener('mouseover', setPosition);
-			container.removeEventListener('mousemove', setPosition);
+			container.removeEventListener('mouseout', hide);
+			container.removeEventListener('mousemove', move as EventListener);
 			// container.removeEventListener('mouseout', hide);
 		}
 	};
