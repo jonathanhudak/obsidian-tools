@@ -9,15 +9,18 @@ export function tooltip(container) {
 	container.addEventListener('mouseout', hide);
 
 	function setPosition(e) {
-		console.log(e);
+		// console.log(e);
 		const { clientX: x, clientY: y } = e;
 		const tooltip = document.querySelector('#tooltip');
-		console.log(tooltip);
-		computePosition(container, tooltip).then(({ x, y }) => {
-			Object.assign(tooltip.style, {
+		// console.log(tooltip);
+		computePosition(container, tooltip).then(() => {
+			const style = {
 				left: `${x}px`,
 				top: `${y}px`
-			});
+			};
+
+			// console.log(style);
+			Object.assign(tooltip.style, style);
 		});
 	}
 
