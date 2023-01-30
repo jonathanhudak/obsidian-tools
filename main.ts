@@ -27,6 +27,24 @@ declare global {
 
 window.habitCalendar = window.habitCalendar || {};
 
+const dailyFolderName = "001 Daily";
+
+function getDateFromFilePath(path: string): Date {
+	// @TODO: use plugin setting for folder name
+
+	const dateStr = path.replace(`${dailyFolderName}/`, "").replace(".md", "");
+	const year = dateStr.slice(0, 4);
+	const month = dateStr.slice(4, 6);
+	const day = dateStr.slice(6);
+	const date = new Date();
+
+	return new Date(`${year}-${month}-${day}`);
+}
+
+let testResult = getDateFromFilePath("001 Daily/20221201.md");
+let expectedResult = new Date("2022-12-01").toString();
+console.assert(testResult.toString(), expectedResult);
+
 export default class HabitCalendar extends Plugin {
 	settings: HabitCalendarSettings;
 
@@ -37,10 +55,26 @@ export default class HabitCalendar extends Plugin {
 			// @ts-ignore https://blacksmithgu.github.io/obsidian-dataview/api/intro/#plugin-access
 			const dv = this.app.plugins.plugins.dataview.api;
 			const habitTasks = dv
-				.pages("#daily")
+				.pages(`"${dailyFolderName}"`)
 				// @ts-ignore
 				.file.tasks.where((t) => t.text.includes(habitName));
-			console.log("habitTasks", habitTasks.values);
+
+			const allTasks = habitTasks.values
+				// @ts-ignore
+				.map((task) => ({
+					date: getDateFromFilePath(task.path),
+					completed: task.completed,
+					p: task.path,
+				}))
+
+				.sort(
+					(t1: { date: Date }, t2: { date: Date }) =>
+						// @ts-ignore
+						t1.date - t2.date
+				);
+			if (allTasks.length) {
+				console.log("allTasks", allTasks);
+			}
 			// @ts-ignore
 			const completed = habitTasks.values.filter((t) => t.completed);
 			createEl("div", {
