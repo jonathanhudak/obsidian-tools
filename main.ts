@@ -62,6 +62,7 @@ export default class HabitCalendar extends Plugin {
 			const allTasks = habitTasks.values
 				// @ts-ignore
 				.map((task) => ({
+					link: task.link,
 					date: getDateFromFilePath(task.path),
 					completed: task.completed,
 					p: task.path,

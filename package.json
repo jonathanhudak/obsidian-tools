@@ -11,7 +11,8 @@
 		"ui": "npm run dev --workspace ui",
 		"ui:deploy": "npm run deploy --workspace ui",
 		"build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
-		"version": "node version-bump.mjs && git add manifest.json versions.json"
+		"preplugin:deploy": "npm run build",
+		"plugin:deploy": "./deploy_plugin.sh"
 	},
 	"keywords": [],
 	"author": "onofon@protonmail.me",
