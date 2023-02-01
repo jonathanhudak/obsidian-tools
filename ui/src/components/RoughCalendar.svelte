@@ -1,4 +1,5 @@
 <script lang="ts">
+	export let totalDays: number = 11;
 	import { onMount, tick } from 'svelte';
 	import rough from 'roughjs';
 	import { tooltip } from './_tooltip.js';
@@ -15,11 +16,19 @@
 	const daysInWeek = 7;
 	const weeksInYear = 52;
 
+	let i = 0;
 	for (let x = 0; x < weeksInYear; x += 1) {
 		const col = x * daySquareSize + daySquareSpacer;
+		if (i > totalDays) {
+			break;
+		}
 		for (let y = 0; y < daysInWeek; y += 1) {
 			const row = y * daySquareSize + daySquareSpacer;
 			days.push([col, row]);
+			i += 1;
+			if (i > totalDays) {
+				break;
+			}
 		}
 	}
 	// console.debug(days);
@@ -61,7 +70,9 @@
 
 		const index = findDayByPos(layerX, layerY);
 
-		console.log('index', index);
+		if (index === -1 || index > totalDays) {
+			return {};
+		}
 
 		return {
 			text: `Hello day ${index + 1}`
@@ -88,7 +99,6 @@
 
 	canvas {
 		max-width: 1200px;
-		cursor: none;
 	}
 
 	ol {

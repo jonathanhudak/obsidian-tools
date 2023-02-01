@@ -21,7 +21,7 @@ export function tooltip(container: Node, { showTooltipForPosition }: TooltipOpti
 		const { clientX: x, clientY: y } = e;
 		const tooltip = document.querySelector('#tooltip') as HTMLElement;
 		const tooltipData = showTooltipForPosition(e);
-		if (!tooltipData || !tooltip) return;
+		if (!tooltipData.text || !tooltip) return;
 
 		tooltip.innerText = tooltipData.text;
 		tooltip.style.display = 'block';
