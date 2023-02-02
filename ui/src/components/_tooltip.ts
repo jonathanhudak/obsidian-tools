@@ -4,7 +4,7 @@ import type { ReferenceElement } from '@floating-ui/core';
 import { computePosition } from '@floating-ui/dom';
 
 interface TooltipData {
-	text: string;
+	text?: string;
 }
 interface TooltipOptions {
 	showTooltipForPosition: (e: MouseEvent) => TooltipData;

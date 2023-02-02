@@ -1,5 +1,7 @@
 <script lang="ts">
-	export let totalDays: number = 11;
+	import type { Habit } from '../types';
+	export let calendarData: Habit[] = [];
+	let totalDays = calendarData.length;
 	import { onMount, tick } from 'svelte';
 	import rough from 'roughjs';
 	import { tooltip } from './_tooltip.js';
@@ -52,10 +54,11 @@
 			// dark mode
 		}
 
-		days.forEach(([col, row]) => {
+		days.forEach(([col, row], index) => {
+			const isCompleted = calendarData[index]?.completed;
 			rc.rectangle(col, row, 10, 10, {
-				stroke: activeColor,
-				fill: activeColor,
+				stroke: isCompleted ? activeColor : 'gainsboro',
+				fill: isCompleted ? activeColor : undefined,
 				hachureAngle: 33,
 				hachureGap: 3
 			});
@@ -63,19 +66,18 @@
 	});
 
 	function showTooltipForPosition(e: MouseEvent) {
-		console.debug(e);
-
 		// @ts-ignore
 		const { layerY, layerX } = e;
 
 		const index = findDayByPos(layerX, layerY);
+		const dayData = calendarData[index];
 
-		if (index === -1 || index > totalDays) {
+		if (index === -1 || !dayData || index > totalDays) {
 			return {};
 		}
 
 		return {
-			text: `Hello day ${index + 1}`
+			text: `${dayData.date.toLocaleDateString()}`
 		};
 	}
 </script>
