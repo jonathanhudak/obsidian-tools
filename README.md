@@ -1,6 +1,15 @@
 # Obsidian Habit Calendar Plugin
 
-## About
+A plugin to view a github-style calendar for individual daily habits.
+
+> [Don't break the chain.](https://jamesclear.com/stop-procrastinating-seinfeld-strategy) - Jerry Seinfeld
+
+## Plugin Development
+
+See plugin template README:
+https://github.com/obsidianmd/obsidian-sample-plugin
+
+## UI Development
 
 This plugin is setup with a sveltekit server for component development.
 
