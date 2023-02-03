@@ -9,6 +9,8 @@ import {
 	// Setting,
 } from "obsidian";
 
+import HabitCalendarView from "./HabitCalendarView.svelte";
+
 // Remember to rename these classes and interfaces!
 
 interface HabitCalendarSettings {
@@ -36,13 +38,12 @@ function getDateFromFilePath(path: string): Date {
 	const year = dateStr.slice(0, 4);
 	const month = dateStr.slice(4, 6);
 	const day = dateStr.slice(6);
-	const date = new Date();
 
 	return new Date(`${year}-${month}-${day}`);
 }
 
-let testResult = getDateFromFilePath("001 Daily/20221201.md");
-let expectedResult = new Date("2022-12-01").toString();
+const testResult = getDateFromFilePath("001 Daily/20221201.md");
+const expectedResult = new Date("2022-12-01").toString();
 console.assert(testResult.toString(), expectedResult);
 
 export default class HabitCalendar extends Plugin {
@@ -76,11 +77,10 @@ export default class HabitCalendar extends Plugin {
 			if (allTasks.length) {
 				console.log("allTasks", allTasks);
 			}
-			// @ts-ignore
-			const completed = habitTasks.values.filter((t) => t.completed);
-			createEl("div", {
-				text: `Habit: "${habitName}": ${completed.length} completed of ${habitTasks.values.length} recorded`,
-				parent: el,
+
+			new HabitCalendarView({
+				target: createEl("div", { parent: el }),
+				props: {},
 			});
 		};
 

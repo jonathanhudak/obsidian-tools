@@ -102,19 +102,4 @@
 	canvas {
 		max-width: 1200px;
 	}
-
-	ol {
-		display: flex;
-		list-style: none;
-		margin: 0;
-		padding: 0;
-		font-size: 10px;
-	}
-
-	li {
-		text-transform: lowercase;
-		text-align: right;
-		width: calc(14px * 4.33);
-		text-align: left;
-	}
 </style>
