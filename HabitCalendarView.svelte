@@ -1,5 +1,5 @@
 <script lang="ts">
-	import HabitCalendar from "ui/src/components/HabitCalendar.svelte";
+	import HabitCalendar from "ui/lib/components/HabitCalendar.svelte";
 </script>
 
 <div>
