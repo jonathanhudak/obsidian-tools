@@ -1,5 +1,6 @@
 import esbuild from "esbuild";
 import process from "process";
+import path from "path";
 import builtins from "builtin-modules";
 import esbuildSvelte from "esbuild-svelte";
 import sveltePreprocess from "svelte-preprocess";
@@ -12,7 +13,9 @@ if you want to view the source, please visit the github repository of this plugi
 */
 `;
 
-const outdir = process.env.OBSIDIAN_VAULT_PATH || ".";
+const outdir = path.resolve(process.env.OBSIDIAN_VAULT_PATH || ".");
+
+console.debug("outdir", outdir);
 
 const prod = process.argv[2] === "production";
 
@@ -51,6 +54,6 @@ esbuild
 		logLevel: "info",
 		sourcemap: prod ? false : "inline",
 		treeShaking: true,
-		outdir,
+		outdir: ".",
 	})
 	.catch(() => process.exit(1));

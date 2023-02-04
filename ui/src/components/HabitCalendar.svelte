@@ -3,8 +3,6 @@
 	import rawHabitsData from '../fixtures/a.json';
 	import type { Habit } from '../types';
 
-	console.log('hello HabitCalendar.svelete');
-
 	function getDaysSinceDate(habit: Habit) {
 		// https://stackabuse.com/javascript-get-number-of-days-between-dates/
 		const start = new Date(habit.date);
