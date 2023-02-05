@@ -75,7 +75,7 @@ export default class HabitCalendar extends Plugin {
 						t1.date - t2.date
 				);
 			if (allTasks.length) {
-				console.log("allTasks", allTasks);
+				// console.log("allTasks", allTasks);
 			}
 
 			new HabitCalendarView({
@@ -113,7 +113,7 @@ export default class HabitCalendar extends Plugin {
 		// 	id: "sample-editor-command",
 		// 	name: "Sample editor command",
 		// 	editorCallback: (editor: Editor, view: MarkdownView) => {
-		// 		console.log(editor.getSelection());
+		// console.log(editor.getSelection());
 		// 		editor.replaceSelection("Sample Editor Command");
 		// 	},
 		// });
@@ -144,12 +144,12 @@ export default class HabitCalendar extends Plugin {
 		// // If the plugin hooks up any global DOM events (on parts of the app that doesn't belong to this plugin)
 		// // Using this function will automatically remove the event listener when this plugin is disabled.
 		// this.registerDomEvent(document, "click", (evt: MouseEvent) => {
-		// 	console.log("click", evt);
+		// console.log("click", evt);
 		// });
 
 		// // When registering intervals, this function will automatically clear the interval when the plugin is disabled.
 		// this.registerInterval(
-		// 	window.setInterval(() => console.log("setInterval"), 5 * 60 * 1000)
+		window.setInterval(() => console.log("setInterval"), 5 * 60 * 1000);
 		// );
 	}
 
@@ -207,7 +207,7 @@ export default class HabitCalendar extends Plugin {
 // 					.setPlaceholder("Enter your secret")
 // 					.setValue(this.plugin.settings.mySetting)
 // 					.onChange(async (value) => {
-// 						console.log("Secret: " + value);
+// console.log("Secret: " + value);
 // 						this.plugin.settings.mySetting = value;
 // 						await this.plugin.saveSettings();
 // 					})

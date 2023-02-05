@@ -1,0 +1,23 @@
+{
+	"name": "habit-calendar-plugin",
+	"version": "1.0.0",
+	"description": "Obsidian habit calendar plugin",
+	"main": "index.js",
+	"devDependencies": {},
+	"scripts": {
+		"dev": "node esbuild.config.mjs",
+		"build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
+		"predeploy": "npm run build",
+		"deploy": "./deploy_plugin.sh"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/jonathanhudak/obsidian-habit-calendar.git"
+	},
+	"author": "Jonathan Hudak",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/jonathanhudak/obsidian-habit-calendar/issues"
+	},
+	"homepage": "https://github.com/jonathanhudak/obsidian-habit-calendar#readme"
+}

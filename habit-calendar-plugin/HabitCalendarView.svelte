@@ -3,7 +3,8 @@
 </script>
 
 <div>
-	Not working yet need to resolve node_modules in ./ui folder
+	Not working yet need to resolve node_modules in ./ui folder Testing plugin
+	deploy
 	<HabitCalendar />
 </div>
 

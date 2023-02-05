@@ -2,8 +2,8 @@
 
 # ENV
 # https://gist.github.com/judy2k/7656bfe3b322d669ef75364a46327836?permalink_comment_id=3710638#gistcomment-3710638
-DEST="/Users/$USER/Library/Mobile Documents/iCloud~md~obsidian/Documents/Zettelkasten/.obsidian/plugins/obsidian-habit-calendar"
-SRC="/Users/$USER/Code/obsidian-habit-calendar/plugin/"
+DEST="/Users/$USER/Library/Mobile Documents/iCloud~md~obsidian/Documents/Zettelkasten/.obsidian/plugins/obsidian-habit-calendar/"
+SRC="/Users/$USER/Code/obsidian-habit-calendar/habit-calendar-plugin/plugin/"
 # BEGIN
 
 rm -rf plugin

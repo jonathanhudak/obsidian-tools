@@ -4,15 +4,16 @@
 	"description": "A plugin to visualize daily habit tasks for Obsidian (https://obsidian.md)",
 	"main": "main.js",
 	"workspaces": [
-		"ui"
+		"ui",
+		"habit-calendar-plugin"
 	],
 	"scripts": {
-		"dev": "node esbuild.config.mjs",
 		"ui": "npm run dev --workspace ui",
+		"ui:build": "npm run build --workspace ui",
 		"ui:deploy": "npm run deploy --workspace ui",
-		"build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
-		"preplugin:deploy": "npm run build",
-		"plugin:deploy": "./deploy_plugin.sh"
+		"plugin:dev": "npm run dev --workspace habit-calendar-plugin",
+		"plugin:build": "npm run build --workspace habit-calendar-plugin",
+		"plugin:deploy": "npm run deploy --workspace habit-calendar-plugin"
 	},
 	"keywords": [],
 	"author": "onofon@protonmail.me",
