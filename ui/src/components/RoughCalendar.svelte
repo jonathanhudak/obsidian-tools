@@ -3,7 +3,7 @@
 	export let calendarData: Habit[] = [];
 	let totalDays = calendarData.length;
 	import { onMount, tick } from 'svelte';
-	import rough from 'roughjs';
+	import { RoughCanvas } from 'roughjs/bin/canvas';
 	import { tooltip } from './_tooltip.js';
 	import Tooltip from './DailyNoteTooltip.svelte';
 	// import { annotate } from 'rough-notation';
@@ -45,7 +45,7 @@
 		});
 	}
 	onMount(async () => {
-		let rc = rough.canvas(canvas);
+		let rc = new RoughCanvas(canvas);
 		canvas.width = width;
 		canvas.height = height;
 		await tick();

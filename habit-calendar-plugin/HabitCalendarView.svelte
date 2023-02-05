@@ -3,15 +3,11 @@
 </script>
 
 <div>
-	Not working yet need to resolve node_modules in ./ui folder Testing plugin
-	deploy
 	<HabitCalendar />
 </div>
 
 <style>
 	div {
-		background: gold;
-		border: 1px solid chartreuse;
-		color: purple;
+		position: relative;
 	}
 </style>

@@ -28,6 +28,7 @@ esbuild
 		bundle: true,
 		plugins: [
 			esbuildSvelte({
+				resolveDir: "",
 				compilerOptions: { css: true },
 				preprocess: sveltePreprocess(),
 			}),
