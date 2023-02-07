@@ -1,8 +1,9 @@
 <script ts>
+	import habitsData from '../fixtures/a.json';
 	import HabitCalendar from '../components/HabitCalendar.svelte';
 </script>
 
-<HabitCalendar />
+<HabitCalendar {habitsData} />
 
 <style>
 	:global(html, body) {

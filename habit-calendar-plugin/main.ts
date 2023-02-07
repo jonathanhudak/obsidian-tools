@@ -60,13 +60,13 @@ export default class HabitCalendar extends Plugin {
 				// @ts-ignore
 				.file.tasks.where((t) => t.text.includes(habitName));
 
-			const allTasks = habitTasks.values
+			const habitsData = habitTasks.values
 				// @ts-ignore
 				.map((task) => ({
-					link: task.link,
+					// link: task.link,
 					date: getDateFromFilePath(task.path),
 					completed: task.completed,
-					p: task.path,
+					// p: task.path,
 				}))
 
 				.sort(
@@ -74,13 +74,13 @@ export default class HabitCalendar extends Plugin {
 						// @ts-ignore
 						t1.date - t2.date
 				);
-			if (allTasks.length) {
-				// console.log("allTasks", allTasks);
-			}
 
 			new HabitCalendarView({
 				target: createEl("div", { parent: el }),
-				props: {},
+				props: {
+					habitsData,
+					habitName,
+				},
 			});
 		};
 
@@ -149,7 +149,7 @@ export default class HabitCalendar extends Plugin {
 
 		// // When registering intervals, this function will automatically clear the interval when the plugin is disabled.
 		// this.registerInterval(
-		window.setInterval(() => console.log("setInterval"), 5 * 60 * 1000);
+		// window.setInterval(() => console.log("setInterval"), 5 * 60 * 1000);
 		// );
 	}
 

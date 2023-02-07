@@ -1,11 +1,13 @@
 <script lang="ts">
 	import RoughCalendar from './RoughCalendar.svelte';
-	import rawHabitsData from '../fixtures/a.json';
-	import type { Habit } from '../types';
+	import type { Habit, DataViewHabit } from '../types';
+	export let habitsData: DataViewHabit[] = [];
 
 	function getDaysSinceDate(habit: Habit) {
+		if (!habit) return 0;
+
 		// https://stackabuse.com/javascript-get-number-of-days-between-dates/
-		const start = new Date(habit.date);
+		const start = typeof habit.date === 'string' ? new Date(habit.date) : habit.date;
 		const now = new Date();
 
 		// One day in milliseconds
@@ -20,7 +22,7 @@
 		return diffInDays;
 	}
 
-	const habits: Habit[] = rawHabitsData.map((t) => ({
+	const habits: Habit[] = habitsData.map((t) => ({
 		...t,
 		date: new Date(t.date)
 	}));
@@ -55,7 +57,9 @@
 		.reverse();
 </script>
 
-<RoughCalendar {calendarData} />
+{#if calendarData.length > 0}
+	<RoughCalendar {calendarData} />
+{/if}
 
 <style>
 </style>
