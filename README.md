@@ -1,15 +1,15 @@
-# Obsidian Habit Calendar Plugin
+## Obsidian Habit Calendar Plugin
 
 A plugin to view a github-style calendar for individual daily habits.
 
 > [Don't break the chain.](https://jamesclear.com/stop-procrastinating-seinfeld-strategy) - Jerry Seinfeld
 
-## Plugin Development
+### Plugin Development
 
 See plugin template README:
 https://github.com/obsidianmd/obsidian-sample-plugin
 
-## UI Development
+### UI Development
 
 This plugin is setup with a sveltekit server for component development.
 
@@ -31,11 +31,7 @@ Add a dependency to ui
 npm i svelte-canvas -w ui
 ```
 
-### Npm workspaces
-
-* https://docs.npmjs.com/cli/v7/using-npm/workspaces#running-commands-in-the-context-of-workspaces
-
-
+---
 
 ## References
 
@@ -43,6 +39,11 @@ npm i svelte-canvas -w ui
 * https://github.com/obsidianmd/obsidian-sample-plugin
 * https://github.com/Richardsl/heatmap-calendar-obsidian
 * https://github.com/blacksmithgu/obsidian-dataview/blob/master/src/api/plugin-api.ts
+
+### Npm workspaces
+
+* https://docs.npmjs.com/cli/v7/using-npm/workspaces#running-commands-in-the-context-of-workspaces
+
 
 ### Svelte
 
