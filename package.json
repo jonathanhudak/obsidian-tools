@@ -1,5 +1,5 @@
 {
-	"name": "obsidian-habit-calendar",
+	"name": "obsidian-plugins",
 	"version": "1.0.0",
 	"description": "A plugin to visualize daily habit tasks for Obsidian (https://obsidian.md)",
 	"main": "main.js",
