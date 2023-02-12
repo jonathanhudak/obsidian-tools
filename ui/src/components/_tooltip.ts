@@ -17,8 +17,9 @@ export function tooltip(container: Node, { showTooltipForPosition }: TooltipOpti
 	container.addEventListener('mouseout', hide);
 
 	function setPosition(e: MouseEvent) {
-		// console.log(e);
-		const { clientX: x, clientY: y } = e;
+		// @ts-ignore
+		const { layerX: x, layerY: y } = e;
+		// console.log('e', e);
 		const tooltip = document.querySelector('#tooltip') as HTMLElement;
 		const tooltipData = showTooltipForPosition(e);
 		if (!tooltipData.text || !tooltip) return;
@@ -26,16 +27,24 @@ export function tooltip(container: Node, { showTooltipForPosition }: TooltipOpti
 		tooltip.innerText = tooltipData.text;
 		tooltip.style.display = 'block';
 
-		// console.log(tooltip);
-		computePosition(container as ReferenceElement, tooltip as HTMLElement).then(() => {
-			const style = {
-				left: `${x}px`,
-				top: `${y}px`
-			};
+		// // console.log(tooltip);
+		// computePosition(container as ReferenceElement, tooltip as HTMLElement).then(() => {
+		// 	const style = {
+		// 		left: `${x}px`,
+		// 		top: `${y}px`
+		// 	};
 
-			// console.log(style);
-			Object.assign(tooltip.style, style);
-		});
+		// 	// console.log(style);
+		// 	Object.assign(tooltip.style, style);
+		// });
+
+		const style = {
+			left: `${x}px`,
+			top: `${y}px`
+		};
+
+		// console.log(style);
+		Object.assign(tooltip.style, style);
 	}
 
 	function move(e: MouseEvent) {
