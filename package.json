@@ -5,7 +5,8 @@
 	"main": "main.js",
 	"workspaces": [
 		"ui",
-		"habit-calendar-plugin"
+		"habit-calendar-plugin",
+		"time-plugin"
 	],
 	"scripts": {
 		"ui": "npm run dev --workspace ui",
@@ -13,7 +14,8 @@
 		"ui:deploy": "npm run deploy --workspace ui",
 		"plugin:dev": "npm run dev --workspace habit-calendar-plugin",
 		"plugin:build": "npm run build --workspace habit-calendar-plugin",
-		"plugin:deploy": "npm run deploy --workspace habit-calendar-plugin"
+		"plugin:deploy": "npm run deploy --workspace habit-calendar-plugin",
+		"plugin:time:deploy": "npm run deploy --workspace time-plugin"
 	},
 	"keywords": [],
 	"author": "onofon@protonmail.me",

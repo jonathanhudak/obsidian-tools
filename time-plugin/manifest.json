@@ -1,0 +1,10 @@
+{
+	"id": "time-plugin",
+	"name": "Time Markers",
+	"version": "0.1.0",
+	"minAppVersion": "0.15.0",
+	"description": "A plugin redner relative dates in the past or future.",
+	"author": "Jonathan Hudak",
+	"authorUrl": "https://hudak.codes",
+	"isDesktopOnly": false
+}
