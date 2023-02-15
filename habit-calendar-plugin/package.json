@@ -33,5 +33,10 @@
 	"bugs": {
 		"url": "https://github.com/jonathanhudak/obsidian-habit-calendar/issues"
 	},
-	"homepage": "https://github.com/jonathanhudak/obsidian-habit-calendar#readme"
+	"homepage": "https://github.com/jonathanhudak/obsidian-habit-calendar#readme",
+	"dependencies": {
+		"@types/luxon": "^3.2.0",
+		"luxon": "^3.2.1",
+		"time-plugin": "^1.0.0"
+	}
 }

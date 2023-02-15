@@ -1,17 +1,5 @@
-import {
-	// App,
-	// Editor,
-	// MarkdownView,
-	// Modal,
-	// Notice,
-	Plugin,
-	// PluginSettingTab,
-	// Setting,
-} from "obsidian";
-
-const rtf1 = new Intl.RelativeTimeFormat("en", { style: "long" });
-
-// Remember to rename these classes and interfaces!
+import { Plugin } from "obsidian";
+import { DateTime } from "luxon";
 
 interface HabitCalendarSettings {
 	mySetting: string;
@@ -20,23 +8,6 @@ interface HabitCalendarSettings {
 const DEFAULT_SETTINGS: HabitCalendarSettings = {
 	mySetting: "default",
 };
-
-function relativeTimeToPresent(date: Date) {
-	const now = new Date();
-	const diff = date.getTime() - now.getTime();
-	const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-	let count = Math.abs(days);
-
-	if (Math.abs(days) > 365) {
-		count = Math.floor(days / 365);
-		return rtf1.format(count, "year");
-	} else if (Math.abs(days) > 30) {
-		count = Math.floor(days / 30);
-		return rtf1.format(count, "month");
-	}
-
-	return rtf1.format(count, "day");
-}
 
 export default class HabitCalendar extends Plugin {
 	settings: HabitCalendarSettings;
@@ -47,24 +18,25 @@ export default class HabitCalendar extends Plugin {
 		this.registerMarkdownCodeBlockProcessor(
 			"time-marker",
 			(source, el, ctx) => {
-				console.log("source", source);
 				const [dateStr] = source
 					.split("\n")
 					.filter((row) => row.length > 0);
 
-				const date = new Date(dateStr);
+				const zone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
-				console.log("boom boom boom boom boom", date);
+				const date = DateTime.fromISO(dateStr, {
+					zone,
+				});
 
 				const container = el.createEl("p");
 				container.createEl("strong").createEl("span", {
-					text: date.toLocaleDateString(),
+					text: date.toLocaleString(DateTime.DATE_HUGE),
 				});
 				container.createEl("span", {
 					text: " — ",
 				});
 				container.createEl("span", {
-					text: relativeTimeToPresent(date),
+					text: date.toRelative()?.toString(),
 				});
 			}
 		);
