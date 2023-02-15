@@ -54,13 +54,11 @@ export default class HabitCalendar extends Plugin {
 
 				const date = new Date(dateStr);
 
-				console.log("date", date);
+				console.log("boom boom boom boom boom", date);
 
 				const container = el.createEl("p");
 				container.createEl("strong").createEl("span", {
-					text: date.toLocaleDateString(undefined, {
-						timeZone: "America/Los Angeles",
-					}),
+					text: date.toLocaleDateString(),
 				});
 				container.createEl("span", {
 					text: " — ",
