@@ -1,0 +1,10 @@
+{
+	"id": "music-embed-plugin",
+	"name": "Music Embed Plugin",
+	"version": "0.1.0",
+	"minAppVersion": "0.15.0",
+	"description": "A plugin to render spotify and other music embeds",
+	"author": "Jonathan Hudak",
+	"authorUrl": "https://hudak.codes",
+	"isDesktopOnly": false
+}

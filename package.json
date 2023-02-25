@@ -6,7 +6,8 @@
 	"workspaces": [
 		"ui",
 		"habit-calendar-plugin",
-		"time-plugin"
+		"time-plugin",
+		"music-embed-plugin"
 	],
 	"scripts": {
 		"ui": "npm run dev --workspace ui",
@@ -17,7 +18,9 @@
 		"plugin:deploy": "npm run deploy --workspace habit-calendar-plugin",
 		"plugin:time:build": "npm run build --workspace time-plugin",
 		"plugin:time:deploy": "npm run deploy --workspace time-plugin",
-		"plugin:time:w": "fswatch ./time-plugin/*.ts | xargs -n 1 npm run plugin:time:deploy"
+		"plugin:time:w": "fswatch ./time-plugin/*.ts | xargs -n 1 npm run plugin:time:deploy",
+		"plugin:music:w": "fswatch ./music-embed-plugin/*.ts | xargs -n 1 npm run plugin:music:deploy",
+		"plugin:music:deploy": "npm run deploy --workspace music-embed-plugin"
 	},
 	"keywords": [],
 	"author": "onofon@protonmail.me",
