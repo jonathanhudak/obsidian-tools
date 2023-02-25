@@ -61,3 +61,8 @@ npm i svelte-canvas -w ui
 
 * https://svelte.dev/repl/318f2c2ca4174a97befe0840936b9eec?version=3.23.0
 * https://floating-ui.com/docs/computePosition
+
+
+### Github Workflow
+
+* https://github.com/elgohr/Github-Release-Action
