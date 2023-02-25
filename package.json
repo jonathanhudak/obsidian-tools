@@ -15,6 +15,7 @@
 		"plugin:dev": "npm run dev --workspace habit-calendar-plugin",
 		"plugin:build": "npm run build --workspace habit-calendar-plugin",
 		"plugin:deploy": "npm run deploy --workspace habit-calendar-plugin",
+		"plugin:time:build": "npm run build --workspace time-plugin",
 		"plugin:time:deploy": "npm run deploy --workspace time-plugin",
 		"plugin:time:w": "fswatch ./time-plugin/*.ts | xargs -n 1 npm run plugin:time:deploy"
 	},
